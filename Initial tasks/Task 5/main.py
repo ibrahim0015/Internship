@@ -3,7 +3,7 @@ from client import fetch_github_repos
 
 
 def summarize_repos(repos):
-    total_repos = len(repos)
+    total = len(repos)
 
     sorted_repos = sorted(
         repos,
@@ -11,19 +11,16 @@ def summarize_repos(repos):
         reverse=True
     )
 
-    top_5 = sorted_repos[:5]
-
-    return total_repos, top_5
+    return total, sorted_repos[:5]
 
 
 def main():
     parser = argparse.ArgumentParser(description="GitHub Repo Stats Tool")
     parser.add_argument("username", help="GitHub username")
+    parser.add_argument("--cache-minutes", type=int, default=10)
     parser.add_argument(
-        "--cache-minutes",
-        type=int,
-        default=10,
-        help="Cache duration in minutes (default: 10)"
+        "--token",
+        help="GitHub Personal Access Token (optional)"
     )
 
     args = parser.parse_args()
@@ -31,7 +28,8 @@ def main():
     try:
         repos, from_cache = fetch_github_repos(
             args.username,
-            cache_minutes=args.cache_minutes
+            cache_minutes=args.cache_minutes,
+            token=args.token
         )
     except Exception as e:
         print("Error:", e)
