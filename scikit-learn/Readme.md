@@ -31,3 +31,9 @@ The goal was to understand how different models behave and how techniques like s
 I would choose **Logistic Regression with scaling** as the preferred model.  
 It consistently achieved high accuracy across different datasets, and scaling ensured fair contribution of all features.  
 Compared to KNN, Logistic Regression is more interpretable and scales better to larger datasets, making it a stronger choice for real-world applications.
+
+## ⚙️ How to Run
+1. Clone the repository and open the notebook (`.ipynb`) in Jupyter Notebook or JupyterLab.  
+2. Install dependencies from `requirements.txt`:  
+   ```bash
+   pip install -r requirements.txt
