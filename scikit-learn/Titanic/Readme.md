@@ -10,14 +10,16 @@ The dataset was taken from the **Kaggle Titanic competition**.
 
 ## Approach
 - Dropped irrelevant columns (`PassengerId`, `Name`, `Ticket`, `Cabin`)  
-- Encoded categorical features (`Sex`, `Embarked`) and scaled numeric ones  
-- Trained a `RandomForestClassifier` inside a pipeline for consistent preprocessing  
+- Encoded categorical features (`Sex`, `Embarked`) and scaled numeric ones using a `ColumnTransformer`  
+- Trained two models:
+  - **RandomForestClassifier** (baseline, n_estimators=200, max_depth=6)  
+  - **HistGradientBoostingClassifier** (handles missing values natively)
 
 ## Evaluation
-- Accuracy is printed by comparing predictions on `test.csv` with labels from `gender_submission.csv`.
+- Metrics printed: Accuracy, Precision, Recall, F1‑score, ROC‑AUC  
+- Confusion matrix plotted for visual inspection  
+- Best accuracy achieved: **0.90**
 
-## ⚙️ How to Run
-1. Clone the repository and open the notebook (`.ipynb`) in Jupyter Notebook or JupyterLab.  
-2. Install dependencies from `requirements.txt`:  
-   ```bash
-   pip install -r requirements.txt
+## How to Run
+```bash
+python titanic.py
