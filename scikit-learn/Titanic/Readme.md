@@ -20,6 +20,9 @@ The dataset was taken from the **Kaggle Titanic competition**.
 - Confusion matrix plotted for visual inspection  
 - Best accuracy achieved: **0.90**
 
-## How to Run
-```bash
-python titanic.py
+
+## ⚙️ How to Run
+1. Clone the repository and open the notebook (`.ipynb`) in Jupyter Notebook or JupyterLab.  
+2. Install dependencies from `requirements.txt`:  
+   ```bash
+   pip install -r requirements.txt
